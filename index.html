@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santiago Rojas | Portfolio</title>
+<style>
+  :root{
+    --orange:#ff6a00;
+    --blue:#00d4ff;
+    --bg-dark:#0d0a14;
+    --bg-card:#1a1326;
+    --text-light:#f1eeef;
+    --text-dim:#c9c3d6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Segoe UI', Arial, sans-serif;
+    background:#0d0a14;
+    color:#f1eef5;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Arial Black', 'Helvetica Neue', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  a{color:var(--blue); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* NAVBAR */
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 60px;
+    background:#0a0712;
+    position:sticky;
+    top:0;
+    z-index:100;
+    border-bottom:1px solid #221a30;
+  }
+  .logo{
+    font-size:1.4rem;
+    font-weight:900;
+  }
+  .logo span.orange{color:var(--orange);}
+  .logo span.blue{color:var(--blue);}
+  .nav-links{
+    display:flex;
+    gap:36px;
+    list-style:none;
+  }
+  .nav-links a{
+    color:#fff;
+    font-weight:600;
+    font-size:0.95rem;
+    letter-spacing:0.5px;
+  }
+  .nav-links a:hover{color:var(--orange); text-decoration:none;}
+
+  /* HERO */
+  .hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    padding:90px 60px;
+    background:radial-gradient(circle at 30% 30%, #3d1240, #1a0d2e 50%, #0d0a14 85%);
+    gap:40px;
+  }
+  .hero-text{max-width:560px;}
+  .hero-text h2{
+    font-size:1.4rem;
+    color:#fff;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .hero-text h1{
+    font-size:3.2rem;
+    line-height:1.1;
+    background:linear-gradient(90deg, var(--orange), #fff 70%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:24px;
+  }
+  .hero-text p{
+    color:var(--text-dim);
+    font-size:1.1rem;
+    max-width:520px;
+  }
+  .hero-img{
+    flex:1;
+    min-width:300px;
+    max-width:480px;
+    border-radius:6px;
+    overflow:hidden;
+    border:1px solid #2a2038;
+  }
+  .hero-img img{
+    width:100%;
+    display:block;
+  }
+
+  /* SECTIONS */
+  section{
+    padding:90px 60px;
+  }
+  .section-title{
+    font-size:2.4rem;
+    color:var(--orange);
+    margin-bottom:18px;
+  }
+  .section-sub{
+    color:var(--text-dim);
+    max-width:700px;
+    margin-bottom:50px;
+    font-size:1.05rem;
+  }
+
+  #about{
+    background:linear-gradient(180deg, #150f1f, #0d0a14);
+  }
+  #about p{
+    color:var(--text-dim);
+    max-width:850px;
+    margin-bottom:22px;
+    font-size:1.05rem;
+  }
+
+  /* PROJECTS */
+  .projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
+    gap:36px;
+  }
+  .project-card{
+    background:var(--bg-card);
+    border:1px solid #2e2440;
+    border-radius:10px;
+    overflow:hidden;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .project-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 30px rgba(255,90,54,0.15);
+  }
+  .project-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+    display:block;
+    background:#fff;
+  }
+  .project-card video{
+    width:100%;
+    height:280px;
+    object-fit:contain;
+    display:block;
+    background:#f4f1ea;
+  }
+  .project-body{
+    padding:26px;
+  }
+  .badge{
+    display:inline-block;
+    background:rgba(255,90,54,0.15);
+    color:var(--orange);
+    font-size:0.75rem;
+    font-weight:700;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    padding:5px 12px;
+    border-radius:20px;
+    margin-bottom:14px;
+  }
+  .project-body h3{
+    font-size:1.3rem;
+    margin-bottom:12px;
+    color:#fff;
+  }
+  .project-body p{
+    color:var(--text-dim);
+    font-size:0.96rem;
+    margin-bottom:18px;
+  }
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .tag{
+    border:1px solid var(--blue);
+    color:var(--blue);
+    font-size:0.78rem;
+    padding:4px 10px;
+    border-radius:20px;
+  }
+
+  /* CONTACT */
+  #contact{
+    text-align:center;
+    background:radial-gradient(circle at 50% 0%, #241431, #0d0a14 70%);
+  }
+  #contact h2.section-title{
+    background:linear-gradient(90deg, var(--orange), var(--blue));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    display:inline-block;
+  }
+  #contact p{
+    color:var(--text-dim);
+    max-width:600px;
+    margin:0 auto 36px;
+  }
+  .btn{
+    display:inline-block;
+    background:linear-gradient(90deg, var(--orange), #ff8a5b);
+    color:#fff;
+    font-weight:700;
+    padding:14px 36px;
+    border-radius:30px;
+    letter-spacing:0.5px;
+    margin-bottom:30px;
+    transition:opacity 0.2s;
+  }
+  .btn:hover{opacity:0.85; text-decoration:none;}
+  .contact-info{
+    color:var(--text-dim);
+    margin-bottom:10px;
+  }
+  .contact-info a{color:var(--blue);}
+  .linkedin{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:14px;
+  }
+
+  footer{
+    text-align:center;
+    padding:30px;
+    color:#6b6478;
+    font-size:0.85rem;
+    border-top:1px solid #221a30;
+  }
+
+  @media(max-width:768px){
+    nav{padding:18px 16px; flex-wrap:wrap; gap:10px;}
+    .nav-links{gap:14px; font-size:0.8rem; flex-wrap:wrap; justify-content:center;}
+    .hero{padding:50px 20px;}
+    section{padding:50px 20px;}
+    .hero-text h1{font-size:1.9rem;}
+    .hero-text h2{font-size:1.1rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><span class="orange">SANTIAGO</span> <span class="blue">ROJAS</span></div>
+  <ul class="nav-links">
+    <li><a href="#home">HOME</a></li>
+    <li><a href="#about">ABOUT ME</a></li>
+    <li><a href="#projects">PROJECTS</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h2>HI, I'M</h2>
+    <h1>SANTIAGO ROJAS</h1>
+    <p>I'm a third year Mechanical Engineering Student at Florida State University with industry experience in mechatronics, seeking internship and co-op opportunities.</p>
+  </div>
+  <div class="hero-img">
+    <!-- Replace with your own photo path, e.g. images/profile.jpg -->
+    <img src="images/profile.jpeg" alt="Santiago Rojas holding the Colombian flag">
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">ABOUT ME</h2>
+  <p>I'm a Mechanical Engineering student at Florida State University from Boca Raton, Florida. My experience includes working as a Mechatronics Engineering Intern at Danfoss Turbocor, where I gained hands-on experience supporting engineering and production operations. This fall, I'll be joining Heatcraft as a Manufacturing Engineering Intern.</p>
+  <p>I currently participate in NASA's L'SPACE program, where I led a team that secured $10,000 in NASA funding to further develop our proposed mission concept. I also previously conducted undergraduate research focused on exoskeleton technology and human-centered design.</p>
+  <p>As a first-generation college student with Colombian parents, I enjoy working on projects that combine technical problem-solving with real-world applications. Outside of academics, I am involved in Theta Tau Professional Engineering Fraternity and SHPE (Society of Hispanic Professional Engineers).</p>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">FEATURED PROJECTS</h2>
+  <p class="section-sub">Engineering solutions that combine mechanical design, electronics, and software to solve real-world problems.</p>
+
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <video src="images/animatronic-eye.mp4" autoplay loop muted playsinline aria-label="Animatronic eye built with Arduino and sensors"></video>
+      <div class="project-body">
+        <span class="badge">Personal Project</span>
+        <h3>Animatronic Eye</h3>
+        <p>Built an Arduino-controlled animatronic eye that tracks joystick movement and blinks on command. Used C++ for programming and integrated multiple servo motors to create realistic eye motion, with AI-assisted code development using Claude.</p>
+        <div class="tags">
+          <span class="tag">Arduino</span>
+          <span class="tag">C++</span>
+          <span class="tag">Servos</span>
+          <span class="tag">Animatronics</span>
+          <span class="tag">Mechanical Design</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <video src="images/windmill-sensor.mp4" autoplay loop muted playsinline aria-label="SonicSensor wind turbine monitoring prototype"></video>
+      <div class="project-body">
+        <span class="badge">Hackathon Winner</span>
+        <h3>SonicSensor &ndash; Wind Turbine Monitoring System</h3>
+        <p>Led a 4-person team in developing an Arduino-based vibration monitoring system that uses acoustic sensors to identify potential faults in wind turbine components. Built during the NextEra Energy Hackathon, the project earned 2nd Place and Fan Favorite among competing teams.</p>
+        <div class="tags">
+          <span class="tag">Arduino</span>
+          <span class="tag">Acoustic Sensors</span>
+          <span class="tag">Team Leadership</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <video src="images/pet-feeder.mp4" autoplay loop muted playsinline aria-label="Automated pet feeding system enclosure"></video>
+      <div class="project-body">
+        <span class="badge">Personal Project</span>
+        <h3>Automated Pet Feeding System</h3>
+        <p>Designed and built an Arduino-controlled pet feeder using Fusion 360 for CAD modeling. The system automatically dispenses food every 12 hours and features an LCD display and audio alerts to notify pets of feeding times.</p>
+        <div class="tags">
+          <span class="tag">Arduino</span>
+          <span class="tag">Fusion 360</span>
+          <span class="tag">LCD Display</span>
+          <span class="tag">Fabrication</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">LET'S CONNECT</h2>
+  <p>I'm actively seeking internship and co-op opportunities and would welcome the chance to connect.</p>
+  <a class="btn" href="mailto:santirojas9383@gmail.com">GET IN TOUCH</a>
+  <div class="contact-info">Email: <a href="mailto:santirojas9383@gmail.com">santirojas9383@gmail.com</a></div>
+  <div class="contact-info">Phone: <a href="tel:5615023397">561-502-3397</a></div>
+  <div class="linkedin"><a href="https://www.linkedin.com/in/santirojas" target="_blank">🔗 Connect on LinkedIn</a></div>
+</section>
+
+<footer>
+  &copy; 2026 Santiago Rojas. All rights reserved.
+</footer>
+
+</body>
+</html>
